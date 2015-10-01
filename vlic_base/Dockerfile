@@ -68,6 +68,25 @@ RUN \
 RUN \
 	sed -i 's/level = info/level = warning/' /usr/local/etc/couchdb/default.ini
 
+# Provision CouchDB user with respective rights
+RUN \
+	adduser --system \
+        --home /usr/local/var/lib/couchdb \
+        --no-create-home \
+        --shell /bin/bash \
+        --group --gecos \
+        "CouchDB Administrator" couchdb
+RUN \
+	chown -R couchdb:couchdb /usr/local/etc/couchdb && \
+	chown -R couchdb:couchdb /usr/local/var/lib/couchdb && \
+	chown -R couchdb:couchdb /usr/local/var/log/couchdb && \
+	chown -R couchdb:couchdb /usr/local/var/run/couchdb
+RUN \
+	chmod 0770 /usr/local/etc/couchdb && \
+	chmod 0770 /usr/local/var/lib/couchdb && \
+	chmod 0770 /usr/local/var/log/couchdb && \
+	chmod 0770 /usr/local/var/run/couchdb
+
 # Command to run
 CMD ["/bin/bash"]
 

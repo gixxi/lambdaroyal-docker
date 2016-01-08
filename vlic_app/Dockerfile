@@ -4,7 +4,8 @@ MAINTAINER Christian Meichsner <christian.meichsner@live.com>
 RUN \
  apt-get update && \
  apt-get install -y --force-yes npm && \
- npm install -g bower 
+ npm install -g bower && \
+ ln -s /usr/bin/nodejs /usr/bin/node
 
 ##########################################
 #ecdsa keypair for json web tokens

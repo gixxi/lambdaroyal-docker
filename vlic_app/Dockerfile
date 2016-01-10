@@ -8,6 +8,15 @@ RUN \
  ln -s /usr/bin/nodejs /usr/bin/node
 
 ##########################################
+#Additional Deps for the VLIC hemisphere
+##########################################
+
+RUN \
+    apt-get update && \
+    apt-get install -y --force-yes texlive texlive-latex-base texlive-latex-extra
+
+
+##########################################
 #ecdsa keypair for json web tokens
 ##########################################
 RUN \

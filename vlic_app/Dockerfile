@@ -1,4 +1,4 @@
-FROM vlic/vlic_base:v1
+FROM vlic/vlic_base:v2
 MAINTAINER Christian Meichsner <christian.meichsner@live.com>
 
 RUN \
@@ -13,7 +13,7 @@ RUN \
 
 RUN \
     apt-get update && \
-    apt-get install -y --force-yes texlive texlive-latex-base texlive-latex-extra
+    apt-get install -y --force-yes texlive texlive-latex-base texlive-latex-extra emacs24
 
 
 ##########################################

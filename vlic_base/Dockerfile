@@ -96,6 +96,9 @@ RUN \
 	chmod 0770 /usr/local/var/log/couchdb && \
 	chmod 0770 /usr/local/var/run/couchdb
 
+# Install 32 bit compability layer
+RUN apt-get update && apt-get install -y --force-yes libc6-i386 lib32z1 lib32ncurses5
+
 # Command to run
 CMD ["/bin/bash"]
 

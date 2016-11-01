@@ -13,7 +13,7 @@ RUN \
 
 RUN \
     apt-get update && \
-    apt-get install -y --force-yes texlive texlive-latex-base texlive-latex-extra emacs24
+    apt-get install -y --force-yes texlive texlive-latex-base texlive-latex-extra emacs24 lftp
 
 ##########################################
 #Startup Configuration

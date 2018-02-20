@@ -102,7 +102,6 @@ RUN buildDeps=' \
 
  RUN apt-get install -y --no-install-recommends erlang
 
-
  RUN cd /usr/src/couchdb \
  # Build the release and install into /opt
  && ./configure --disable-docs \
@@ -111,7 +110,7 @@ RUN buildDeps=' \
  # Cleanup build detritus
  && apt-get purge -y --auto-remove $buildDeps \
  && rm -rf /var/lib/apt/lists/* /usr/src/couchdb* \
- && mkdir /opt/couchdb/data \
+ && mkdir /data \
  && chown -R couchdb:couchdb /opt/couchdb
 
 # Add configuration
@@ -122,6 +121,8 @@ COPY ./docker-entrypoint.sh /
 
 # Setup directories and permissions
 RUN chown -R couchdb:couchdb /opt/couchdb/etc/local.d/ /opt/couchdb/etc/vm.args
+
+VOLUME ["/data"]
 
 WORKDIR /opt/couchdb
 

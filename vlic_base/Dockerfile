@@ -45,4 +45,4 @@ RUN \
 	wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O bin/lein && \
 	chmod a+x bin/lein && \
 	export PATH=$PATH:bin && \
-	bash lein
+	bash leinM
